@@ -79,7 +79,7 @@ export default function Home() {
                 <input
                   type="number"
                   value={pessoas}
-                  onChange={(e) => setPessoas(e.target.value)}
+                  onChange={(e) => setPessoas(Number(e.target.value))}
                   className="rounded-2xl w-28 h-40 text-7xl text-center text-amber-600"
                 />
                 <button onClick={() => setPessoas(pessoas + +1)}>
