@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(45deg, #d42274, #22d4d4, #ccd422);
+  background-size: 4000% 4000%;
+  animation: GradientBackground 10s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.leading-huge-text {
+  line-height: 0.9;
+}
+.grid-rows-min {
+  grid-template-rows: repeat(auto-fill, min-content);
+}
+.current-color {
+  accent-color: rgba(130, 221, 53, 1);
+}
+/* corresponds to tailwind md size */
+@media (max-width: 768px) {
+  .current-color {
+    accent-color: rgba(235, 174, 15, 1);
+  }
+}
+.bg-rainbow {
+  background-size: var(--bg-size-x) 100%;
+  background-image: linear-gradient(
+    to left in hsl,
+    hsl(359deg, 100%, 50%),
+    hsl(180deg, 100%, 50%)
+  );
+}
+.animate-hue {
+  animation: animate-hue var(--animation-duration) infinite linear;
+}
+.animate-bg {
+  animation: animate-bg var(--animation-duration) infinite linear;
+}
+@keyframes animate-bg {
+  from {
+    background-position: calc(var(--bg-pos-x) * var(--text-w)) 0;
+  }
+  to {
+    background-position: calc(
+        100% - var(--text-w) + calc(var(--bg-pos-x) * var(--text-w))
+      )
+      0;
+  }
+}
+@keyframes animate-hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+::-webkit-slider-runnable-track {
+  background: #f1f1f1;
+  border-radius: 1rem;
+  padding: 0.1rem 0.2rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
